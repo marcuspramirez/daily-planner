@@ -1,17 +1,17 @@
-// Is this ready function the main function that has calls the usage of jQuery?
+// jQuery ready funcion, wrapped everthing in this
 $(document).ready(function () {
-    var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
-    var hourNow = moment().hours();
+    var now = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var hourCurrent = moment().hours();
     const baseSavedValues = JSON.stringify({});
 
-    // What is .each?  What is index?  How are we using this?  New block variable creating an ID attribute?
-    // This should be changing the colors according to the current time
+    
+    // add funtcion class to change colors 
     function hour() {
         $(".time-block").each(function (index) {
             var block = +$(this).attr("id");
-            if (hourNow > block) {
+            if (hourCurrent > block) {
                 $(this).addClass("past");
-            } else if (hourNow === block) {
+            } else if (hourCurrent === block) {
                 $(this).addClass("present");
             } else {
                 $(this).addClass("future");
@@ -22,10 +22,10 @@ $(document).ready(function () {
 
     }
 
-    // Not displaying current day
+    // Display the current day
     $("#currentDay").append(moment().format('dddd ll'));
 
-    // Click function for the save buttons.  Please explain "this" unless understood from above usage
+    // Creawte click function for save button
     $(".saveBtn").click(function () {
         var savedValue = $(this).siblings(".description").val();
         var savedTime = $(this).parent().attr("id");
@@ -54,23 +54,8 @@ $(document).ready(function () {
             $('#' + key).find('.description').text(saveItems[key]);
         }
     }
-    //{9: 0}
-    //[{time: 9, value: hellow world}]
-
-    // for each description, from the id == which is the time it was saved, and store the item.
-    // $(".description").each(function (index, value) {
-    //     let id = $(this).parent().attr("id");
-    //     console.log(index, value, id);
-    //     for (let i = 0; i < saveItems.length; i++) {
-    //         console.log(saveItems[i].time);
-    //         if (id == saveItems[i].time) {
-    //             $(this).text(saveItems[i].value);
-    //         }
-
-    //     }
-
-
-    // })
+    
+   
 
     hour();
 
