@@ -1,5 +1,10 @@
 # daily-planner
 
+Deployed Link:
+https://marcuspramirez.github.io/daily-planner/develop/index.html
+
+
+
 
 GIVEN a user is using a daily planner to create a schedule
 WHEN user opens the planner the current day is displayed at the top of the calendar
